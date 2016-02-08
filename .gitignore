@@ -1,0 +1,16 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# eclips #
+.settings/*
+.*
+/**/work/
+/**/target/
+/**/WEB-INF/classes/
+/**/WEB-INF/lib/
+
+!.gitignore
