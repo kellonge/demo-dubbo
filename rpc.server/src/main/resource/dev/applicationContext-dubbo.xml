@@ -10,7 +10,7 @@
  
 	<dubbo:application name="sport-service-test-server"  /> 	
 	
-    <dubbo:registry address="redis://10.117.179.140:6385" />
+    <dubbo:registry address="redis://121.41.10.2:6385" />
 	
 	<dubbo:protocol name="dubbo" port="20880" />
 	
