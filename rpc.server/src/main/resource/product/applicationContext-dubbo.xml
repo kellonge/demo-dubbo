@@ -8,7 +8,7 @@
 	http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
 	default-lazy-init="true" default-autowire="byName">
  
-	<dubbo:application name="sport-service-test-server"  /> 	
+	<dubbo:application name="sport-service-server-product"  /> 	
 	
     <dubbo:registry address="redis://10.117.179.140:6385" />
 	

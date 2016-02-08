@@ -84,14 +84,6 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>2.2.1</version>
 				<configuration>
@@ -133,6 +125,14 @@
 					<serverId>redis-task-service</serverId>
 					<fromFile>target/${project.artifactId}-package.zip</fromFile>
 					<url>scp://121.41.10.2/DISK/tmp</url>
+					<commands>
+						<command><![CDATA[unzip -o /DISK/tmp/${project.artifactId}-package.zip -d /DISK/server/service_test/]]></command>
+						<command><![CDATA[rm -f /DISK/tmp/${project.artifactId}-package.zip]]></command>
+						<command><![CDATA[cd /DISK/server/service_test/]]></command>
+						<command><![CDATA[pid=`ps aux | grep java.*RpcServerStart | grep -v grep | awk '{print $2}'`]]></command>
+						<command><![CDATA[kill -9 $pid]]></command>
+						<command><![CDATA[nohup java -classpath ".;lib\*" com.kellonge.${project.artifactId}.start.RpcServerStart > /DISK/log/${project.artifactId}/nohup.out 2>&1 &]]></command>
+					</commands>
 				</configuration>
 			</plugin>
 		</plugins>
